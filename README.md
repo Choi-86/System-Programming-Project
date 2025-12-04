@@ -12,16 +12,16 @@ SHA-1 기반 캐시 구조를 바탕으로, 실제 브라우저 HTTP 요청을 �
 - 스레드 기반 비동기 로깅 구조 구현
 
 ## Project Structure
-proxy-server/
- ├── Proxy1-1/     # SHA-1 기반 캐시 구조
- ├── Proxy1-2/     # HIT/MISS + 로깅
- ├── Proxy1-3/     # 다중 프로세스 구조
- ├── Proxy2-1/     # Client–Server 구조
- ├── Proxy2-2/     # HTTP 요청 파싱 및 자동 요청 필터링
- ├── Proxy2-3/     # SIGALRM 타임아웃 처리
- ├── Proxy2-4/     # 실제 HTTP 응답 저장 캐싱
- ├── Proxy3-1/     # 세마포어 기반 동기화
- └── Proxy3-2/     # 스레드 기반 비동기 로깅
+proxy-server
+ - Proxy1-1/     # SHA-1 기반 캐시 구조
+ - Proxy1-2/     # HIT/MISS + 로깅
+ - Proxy1-3/     # 다중 프로세스 구조
+ - Proxy2-1/     # Client–Server 구조
+ - Proxy2-2/     # HTTP 요청 파싱 및 자동 요청 필터링
+ - Proxy2-3/     # SIGALRM 타임아웃 처리
+ - Proxy2-4/     # 실제 HTTP 응답 저장 캐싱
+ - Proxy3-1/     # 세마포어 기반 동기화
+ - Proxy3-2/     # 스레드 기반 비동기 로깅
 
 ## Key Features
 🔹 1. 캐시 구조 (Proxy 1-1 ~ 1-3)
