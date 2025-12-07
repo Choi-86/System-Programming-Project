@@ -24,26 +24,26 @@ proxy-server
  - Proxy3-2/     # 스레드 기반 비동기 로깅
 
 ## Key Features
-🔹 1. 캐시 구조 (Proxy 1-1 ~ 1-3)
-    - URL → SHA-1 해시값으로 변환
+### 1. 캐시 구조 (Proxy 1-1 ~ 1-3)
+- URL → SHA-1 해시값으로 변환
     - cache/<3자리>/<나머지 해시> 구조로 저장
     - HIT/MISS 판별 및 URL·해시·시간 로그 기록
-🔹 2. 브라우저 HTTP 요청 처리 (Proxy 2-1 ~ 2-4)
-    - 브라우저의 모든 요청을 Proxy가 수신
+### 2. 브라우저 HTTP 요청 처리 (Proxy 2-1 ~ 2-4)
+- 브라우저의 모든 요청을 Proxy가 수신
     - Host·URL 파싱 후 캐시 검사
     - MISS 시 원 서버로 HTTP GET 전송
     - HTML·CSS·JS 등 실제 웹 응답을 캐싱 후 반환
     - 자동 요청(favicon, css 등) 필터링
-🔹 3. 안정성 강화를 위한 시그널 처리 (Proxy 2-3)
-    - 응답 지연(sleep 13) 실험
+### 3. 안정성 강화를 위한 시그널 처리 (Proxy 2-3)
+ 응답 지연(sleep 13) 실험
     - SIGALRM 기반 10초 타임아웃 처리
     - 비정상 프로세스 종료 방지
-🔹 4. 세마포어 기반 동기화 (Proxy 3-1)
-    - 여러 프로세스의 logfile 동시 접근 문제 해결
+### 4. 세마포어 기반 동기화 (Proxy 3-1)
+- 여러 프로세스의 logfile 동시 접근 문제 해결
     - Race Condition을 sleep()으로 의도적으로 재현
     - PID별 waiting → critical zone → exit 상태 출력
-🔹 5. 스레드 기반 비동기 로깅 (Proxy 3-2)
-    - 자식 프로세스는 요청 처리
+### 5. 스레드 기반 비동기 로깅 (Proxy 3-2)
+- 자식 프로세스는 요청 처리
     - 스레드는 로그 기록 담당
     - PID + TID 기반 상세 동시성 기록
     - 로그 안정성 및 성능 향상
